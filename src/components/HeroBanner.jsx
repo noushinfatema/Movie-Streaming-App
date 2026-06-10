@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function HeroBanner() {
   return (
     <section
@@ -12,6 +14,10 @@ export default function HeroBanner() {
           Stranger Things
         </h1>
 
+        <p className="text-lg mb-2">
+          Genre: Thriller • Sci-Fi • Horror
+        </p>
+
         <p className="text-lg mb-6">
           When a young boy vanishes, a small town uncovers
           a mystery involving secret experiments and
@@ -19,13 +25,21 @@ export default function HeroBanner() {
         </p>
 
         <div className="flex gap-4">
-          <button className="bg-white text-black px-6 py-3 rounded font-semibold">
-            ▶ Play
-          </button>
+          <a
+  href="https://www.youtube.com/watch?v=b9EkMc79ZSU"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="bg-white text-black px-6 py-3 rounded font-semibold"
+>
+  ▶ Play Trailer
+</a>
 
-          <button className="bg-gray-700 px-6 py-3 rounded">
+          <Link
+            to="/stranger-things"
+            className="bg-gray-700 px-6 py-3 rounded hover:bg-gray-600"
+          >
             More Info
-          </button>
+          </Link>
         </div>
       </div>
     </section>

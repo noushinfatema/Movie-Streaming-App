@@ -45,30 +45,41 @@ export default function SearchPage() {
   return (
     <div className="min-h-screen bg-black text-white px-6 md:px-10 py-6">
       
-      {/* Netflix Header */}
-      <div className="flex justify-between items-center mb-8">
+      {/* Header */}
+      <div className="flex justify-between items-center mb-10">
         <h1 className="text-red-600 text-4xl font-bold">
           NETFLIX
         </h1>
 
         <div className="hidden md:flex gap-8 text-gray-300">
-          <span className="cursor-pointer hover:text-white">Home</span>
-          <span className="cursor-pointer hover:text-white">TV Shows</span>
-          <span className="cursor-pointer hover:text-white">Movies</span>
-          <span className="cursor-pointer hover:text-white">My List</span>
+          <span className="cursor-pointer hover:text-white transition">
+            Home
+          </span>
+
+          <span className="cursor-pointer hover:text-white transition">
+            TV Shows
+          </span>
+
+          <span className="cursor-pointer hover:text-white transition">
+            Movies
+          </span>
+
+          <span className="cursor-pointer hover:text-white transition">
+            My List
+          </span>
         </div>
       </div>
 
       {/* Page Title */}
-      <h2 className="text-3xl font-bold mb-6">
+      <h2 className="text-4xl font-bold text-center mb-8">
         Search
       </h2>
 
-      {/* Search Bar */}
-      <div className="relative max-w-2xl mb-10">
+      {/* Full Width Search Bar */}
+      <div className="relative w-full mb-12">
         <Search
           className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
-          size={20}
+          size={22}
         />
 
         <input
@@ -76,16 +87,16 @@ export default function SearchPage() {
           placeholder="Search movies, shows..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full rounded-lg border border-zinc-700 bg-zinc-900 py-3 pl-12 pr-4 outline-none focus:border-red-500"
+          className="w-full rounded-xl border border-zinc-700 bg-zinc-900 py-4 pl-12 pr-4 text-lg outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition"
         />
       </div>
 
       {/* Section Title */}
-      <h3 className="text-xl font-semibold mb-6">
+      <h3 className="text-2xl font-semibold mb-8">
         {searchTerm ? "Search Results" : "Popular Searches"}
       </h3>
 
-      {/* Movie Grid */}
+      {/* Movies Grid */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-6">
         {filteredMovies.map((movie) => (
           <div
@@ -95,18 +106,19 @@ export default function SearchPage() {
             <img
               src={movie.image}
               alt={movie.title}
-              className="w-full h-[260px] object-cover rounded-lg"
+              className="w-full h-[260px] object-cover rounded-lg shadow-md"
             />
 
-            <h4 className="mt-3 text-center text-sm font-medium">
+            <h4 className="mt-3 text-center text-sm md:text-base font-medium">
               {movie.title}
             </h4>
           </div>
         ))}
       </div>
 
+      {/* No Results */}
       {filteredMovies.length === 0 && (
-        <div className="mt-20 text-center text-gray-400">
+        <div className="mt-20 text-center text-gray-400 text-lg">
           No movies found.
         </div>
       )}
