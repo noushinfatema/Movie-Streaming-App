@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Search from "./pages/Search";
 import Categories from "./pages/Categories";
 import Account from "./pages/Account";
+import MovieDetails from "./pages/MovieDetails";
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
         <Route path="/search" element={<Search />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/account" element={<Account />} />
+        <Route path="/movie/:id" element={<MovieDetails />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Login() {
+    const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-black flex justify-center items-center">
       <div className="bg-zinc-900 p-10 rounded-lg w-96">
@@ -20,8 +21,11 @@ export default function Login() {
           className="w-full p-3 mb-6 rounded bg-zinc-800 text-white"
         />
 
-        <button className="w-full bg-red-600 p-3 rounded font-semibold">
-          Sign In
+        <button
+            onClick={() => navigate("/profiles")}
+            className="w-full bg-red-600 p-3 rounded font-semibold"
+        >
+            Sign In
         </button>
 
         <p className="text-gray-400 mt-6">
